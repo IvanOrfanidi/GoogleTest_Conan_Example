@@ -3,4 +3,10 @@ mkdir -p build
 cd build
 
 # Build Test
-conan install ../ -s build_type=Debug --build=gtest
+if [[ "$OSTYPE" == "msys" ]]; then
+    # For Windows
+    conan install ../ -s build_type=Debug --build=gtest
+else
+    # For Linux or other OS
+    conan install ../ -s build_type=Debug
+fi

@@ -2,8 +2,7 @@
 
 int main()
 {
-    std::cout << std::endl
-              << "Hello Google Test!" << std::endl;
+    std::cout << "Hello Google Test!" << std::endl;
 
     return 0;
 }

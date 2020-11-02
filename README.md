@@ -10,8 +10,11 @@
 * Выполнить скрипт
 `compile_googletest.sh`
 
-* Выполнить команду в папке со сборкой(build, out)
++ Выполнить команду в папке со сборкой(build, out):
+  + Для Linux:
 `conan install ../ -s build_type=Debug`
+  + Для Windows:
+`conan install ../ -s build_type=Debug --build=gtest`
 
 ### Дополнительно
 * При установки библиотеки возможно потребуется зарегистироватся на
