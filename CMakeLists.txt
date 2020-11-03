@@ -8,9 +8,8 @@ project(main)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-# Option
+# Options
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
 
 # Compiler-specific options
 if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
@@ -58,6 +57,11 @@ set(TEST_SOURCES
 
 # Include directories
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+
+# Set build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif(NOT CMAKE_BUILD_TYPE)
 
 # Compiling target
 add_executable(${PROJECT_NAME} ${SOURCES})
