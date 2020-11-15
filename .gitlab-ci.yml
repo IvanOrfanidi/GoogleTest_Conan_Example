@@ -1,6 +1,8 @@
 build:
   script:
-  - cd /media/storage/gitlab/
+  - ./compile_googletest.sh
+  - ./compile.sh
+  - ./build/bin/main_tests
   after_script:
   - cd /media/storage/gitlab/
   - sudo rm -rf GoogleTest_Conan_Example
