@@ -6,4 +6,4 @@ build:
   after_script:
   - cd /media/storage/gitlab/
   - sudo rm -rf GoogleTest_Conan_Example
-  - git clone http://192.168.109.15/root/GoogleTest_Conan_Example.git
+  - git clone http://git.home.lan/root/GoogleTest_Conan_Example.git
