@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <inc/sum.h>
+#include <include/sum.h>
 
 TEST(TestSuml, sum_eq)
 {

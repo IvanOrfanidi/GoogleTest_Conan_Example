@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <inc/equal.h>
+#include <include/equal.h>
 
 TEST(TestEqual, equal_true)
 {

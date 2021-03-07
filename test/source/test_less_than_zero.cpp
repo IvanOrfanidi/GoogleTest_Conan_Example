@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <vector>
 
-#include <inc/less_than_zero.h>
+#include <include/less_than_zero.h>
 
 template <class T>
 class FXLessThanZero : public ::testing::TestWithParam<T> {

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <inc/min.h>
+#include <include/min.h>
 
 template <class T>
 class FXTestMin : public ::testing::TestWithParam<T> {

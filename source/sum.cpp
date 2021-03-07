@@ -1,4 +1,4 @@
-#include <inc/sum.h>
+#include <include/sum.h>
 
 /**
  * @brief Суммирует два числа

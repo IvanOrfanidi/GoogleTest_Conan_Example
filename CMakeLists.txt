@@ -32,27 +32,23 @@ endif()
 
 # Source files
 set(SOURCES
-    src/main.cpp
-    src/equal.cpp
-    inc/equal.h
-    src/sum.cpp
-    inc/sum.h
-    inc/min.h
-    inc/less_than_zero.h
+    source/main.cpp
+    source/equal.cpp
+    source/sum.cpp
+    include/min.h
+    include/less_than_zero.h
 )
 
 # Source tests files
 set(TEST_SOURCES
-    test/test_equal.cpp
-    test/test_sum.cpp
-    test/test_min.cpp
-    test/test_less_than_zero.cpp
-    src/equal.cpp
-    inc/equal.h
-    src/sum.cpp
-    inc/sum.h
-    inc/min.h
-    inc/less_than_zero.h
+    test/source/test_equal.cpp
+    test/source/test_sum.cpp
+    test/source/test_min.cpp
+    test/source/test_less_than_zero.cpp
+    source/equal.cpp
+    source/sum.cpp
+    include/min.h
+    include/less_than_zero.h
 )
 
 # Include directories

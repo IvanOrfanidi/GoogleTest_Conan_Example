@@ -1,4 +1,4 @@
-#include <inc/equal.h>
+#include <include/equal.h>
 
 /**
  * @brief Проверка на равенство двух чисел.
