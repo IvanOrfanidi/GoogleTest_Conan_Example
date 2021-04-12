@@ -5,8 +5,10 @@ cmake_minimum_required(VERSION 3.10)
 project(main)
 
 # Include lib conan test
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+if(TEST)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif()
 
 # Options
 set(CMAKE_CXX_STANDARD 11)
@@ -16,17 +18,6 @@ if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clan
     add_compile_options(
         -Werror
         -Wall
-        -Wextra
-        -Wpedantic
-        -Wcast-align
-        -Wcast-qual
-        -Wenum-compare
-        -Wfloat-equal
-        -Wnon-virtual-dtor
-        -Woverloaded-virtual
-        -Wredundant-decls
-        -Wsign-promo
-        -Wno-deprecated-declarations
     )
 endif()
 
@@ -62,8 +53,10 @@ endif(NOT CMAKE_BUILD_TYPE)
 # Compiling target
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Compiling target for tests
-add_executable(${PROJECT_NAME}_tests ${TEST_SOURCES})
+if(TEST)
+    # Compiling target for tests
+    add_executable(${PROJECT_NAME}_tests ${TEST_SOURCES})
 
-# Link target with gtest
-target_link_libraries(${PROJECT_NAME}_tests ${CONAN_LIBS})
+    # Link target with gtest
+    target_link_libraries(${PROJECT_NAME}_tests ${CONAN_LIBS})
+endif()

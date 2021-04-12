@@ -1,9 +1,53 @@
-build:
+stages:
+  - building
+  - test
+
+gcc:
+  stage: building
+  before_script:
+    - mkdir build
+    - cd build
+    - conan install ../ -s build_type=Debug --profile gcc
   script:
-  - ./compile_googletest.sh
-  - ./compile.sh
-  - ./build/bin/main_tests
-  after_script:
-  - cd /media/storage/gitlab/
-  - sudo rm -rf GoogleTest_Conan_Example
-  - git clone http://git.home.lan/root/GoogleTest_Conan_Example.git
+    - cmake -G "Unix Makefiles"
+      -DCMAKE_C_COMPILER=gcc
+      -DCMAKE_CXX_COMPILER=g++
+      -DCMAKE_BUILD_TYPE=Release
+      -DTEST=true
+      ..
+    - cmake --build .
+  artifacts:
+    paths:
+      - build/bin/main_tests
+
+clang:
+  stage: building
+  before_script:
+    - mkdir build
+    - cd build
+    - conan install ../ -s build_type=Debug --profile clang
+  script:
+    - cmake -G "Unix Makefiles"
+      -DCMAKE_C_COMPILER=clang
+      -DCMAKE_CXX_COMPILER=clang++
+      -DCMAKE_BUILD_TYPE=Release
+      -DTEST=true
+      ..
+    - cmake --build .
+  artifacts:
+    paths:
+      - build/bin/main_tests
+
+google-gcc:
+  stage: test
+  dependencies:
+    - gcc
+  script:
+    - ./build/bin/main_tests
+
+google-clang:
+  stage: test
+  dependencies:
+    - clang
+  script:
+    - ./build/bin/main_tests
